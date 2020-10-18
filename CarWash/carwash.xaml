@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="CarWash.carwash"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarWash"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" MinHeight="540" FontSize="12" FontFamily="Tahoma" >
+    <Grid Background="LightBlue" Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="520"/>
+            <ColumnDefinition Width="280"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"  />
+            <RowDefinition Height="400" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"  Width="126" >
+            <TextBlock FontFamily="Titr" FontSize="17" Foreground="#FF1B208D">ثبت مشتری جدید</TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top"  Width="270"  >
+            <StackPanel HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0">
+                    <TextBlock Margin="10,0,10,0" Width="120">خودرو :</TextBlock>
+                    <TextBlock  Width="120"><Run Text="کارگر :"/></TextBlock>
+                </StackPanel>
+                <StackPanel Margin="5" FlowDirection="RightToLeft" Orientation="Horizontal">
+                    <ComboBox Name="cbinkhodro" Width="120" Margin="10,0,10,0" TabIndex="1"></ComboBox>
+                    <ComboBox Name="cbinkargar" Width="120" TabIndex="2"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0">
+                    <TextBlock Margin="10,0,10,0" Width="120">خدمات :</TextBlock>
+
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Margin="5" FlowDirection="RightToLeft" Orientation="Horizontal">
+                    <ListBox x:Name="listkhadamat" Height="100" Width="120" Margin="10,0,0,0" LostFocus="listkhadamat_LostFocus" SelectionMode="Multiple" TabIndex="3"  >
+
+                    </ListBox>
+
+                    <StackPanel Margin="5,0,0,0">
+                        <TextBlock FontSize="18">هزینه :</TextBlock>
+                        <TextBox x:Name="txthazinekol" Width="100" Margin="20,20,0,0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" IsEnabled="False">0</TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0">
+                    <TextBlock Margin="10,0,10,0" Width="120">شماره تلفن همراه :</TextBlock>
+                    <TextBlock  Width="120"><Run Text="نام :"/></TextBlock>
+                </StackPanel>
+                <StackPanel Margin="5" FlowDirection="RightToLeft" Orientation="Horizontal">
+                    <TextBox Name="txtintell" Width="120" Margin="10,0,10,0" HorizontalContentAlignment="Center" PreviewTextInput="txtintell_PreviewTextInput" LostFocus="txtintell_LostFocus" MaxLength="11" TabIndex="4"></TextBox>
+                    <TextBox Name="txtinname" Width="120" LostFocus="txtinname_LostFocus" GotFocus="txtinname_GotFocus" HorizontalContentAlignment="Center" TabIndex="5" ></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,10">
+                    <TextBlock Margin="10,0,5,0" Width="80" FontSize="15" VerticalAlignment="Center">شماره پلاک :</TextBlock>
+                    <Border BorderThickness="2" Width="165" Height="35" BorderBrush="Black" CornerRadius="5" Background="White" HorizontalAlignment="Right">
+                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <TextBox x:Name="pelakcode" Width="36" FontSize="20" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" Background="{x:Null}" MaxLength="2" TabIndex="6" GotFocus="pelakcode_GotFocus" >73</TextBox>
+
+                            <TextBox x:Name="pelak1" Width="54" FontSize="20" HorizontalContentAlignment="Center" BorderBrush="Black" BorderThickness="2,0,0,0"  Background="{x:Null}" MaxLength="3" PreviewTextInput="txtintell_PreviewTextInput" TabIndex="7" GotFocus="pelak1_GotFocus" >256</TextBox>
+                            <TextBox x:Name="pelak2" Width="25" FontSize="20" HorizontalContentAlignment="Center" BorderBrush="{x:Null}"  Background="{x:Null}" MaxLength="1" PreviewTextInput="TextBox_PreviewTextInput" TabIndex="8" GotFocus="pelak2_GotFocus" >ج</TextBox>
+                            <TextBox x:Name="pelak3" Width="36" FontSize="20" HorizontalContentAlignment="Center" BorderBrush="{x:Null}"  Background="{x:Null}" MaxLength="2" PreviewTextInput="txtintell_PreviewTextInput" TabIndex="8" GotFocus="pelak3_GotFocus" >77</TextBox>
+                            <Rectangle Fill="#FF2739F0" Width="15"  Height="35" UseLayoutRounding="False" RadiusY="0.059" RadiusX="0.059"/>
+
+
+                        </StackPanel>
+
+                    </Border>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Text="رزرو"></TextBlock>
+                    <CheckBox x:Name="cbinreserve" Margin="10,5" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0">
+                    <TextBlock Margin="10,0,10,0" Width="120">ساعت ورود :</TextBlock>
+                    <TextBlock  Width="120"><Run Text="تاریخ :"/></TextBlock>
+                </StackPanel>
+
+                <StackPanel Margin="5" FlowDirection="RightToLeft" Orientation="Horizontal">
+                    <TextBox Name="txtintime" Width="120" Margin="10,0,10,0" GotFocus="txtintime_GotFocus" HorizontalContentAlignment="Center" HorizontalAlignment="Center" IsEnabled="False"></TextBox>
+                    <TextBox Name="txtindate" Width="120" HorizontalContentAlignment="Center" HorizontalAlignment="Center" GotFocus="txtindate_GotFocus" IsEnabled="False" ></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,5" HorizontalAlignment="Center">
+                    <Button Content="ثبت ورود" Name="addin" Width="200" Height="30" TabIndex="10" Click="addin_Click" ></Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" FlowDirection="RightToLeft">
+            <TextBlock  FontWeight="ExtraBold" Foreground="#FFE5F91A" FontSize="25" Margin="0,0,35,0" FontFamily="Titr" >رزرو</TextBlock>
+            <TextBlock  FontWeight="ExtraBold" Foreground="#FF53C18A" FontSize="25" Margin="0,0,35,0" FontFamily="Titr">در حال خدمت رسانی</TextBlock>
+            <TextBlock  FontWeight="ExtraBold" Foreground="#FF5D7BCB" FontSize="25" FontFamily="Titr" >خدمات پایان یافته</TextBlock>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+
+            <StackPanel>
+                <StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <StackPanel Margin="5,0,5,0">
+                            <Button Name="btnhazfres" Margin="0,15,0,10" Height="25" Click="btnhazfres_Click" >حذف</Button>
+                            <Button Name="btnreadyres" Margin="0,10,0,15" Height="25" Click="btnreadyres_Click">آماده انجام خدمات</Button>
+                        </StackPanel>
+                        <DataGrid x:Name="datagridreserve" AutoGenerateColumns="False" CanUserAddRows="false" Height="100" Width="400" FlowDirection="RightToLeft" Background="#FFE5F91A" RowBackground="#FFE5F91A" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" GridLinesVisibility="None"  >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding tarikh}" Width="70" Header="تاریخ"/>
+                                <DataGridTextColumn Binding="{Binding intime}" Width="40" Header="اغاز"/>
+                                <DataGridTextColumn Binding="{Binding kargar}" Width="70" Header="کارگر"/>
+                                <DataGridTextColumn Binding="{Binding pelak}" Width="100" Header="پلاک"/>
+                                <DataGridTextColumn Binding="{Binding shomaretell}" Width="100" Header="شماره همراه"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <StackPanel Margin="5,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Button Name="btnpayankar" Margin="0,15,0,10" Height="25" Width="94" VerticalAlignment="Center" Click="btnpayankar_Click" >پایان کار</Button>
+
+
+                        </StackPanel>
+
+                        <DataGrid x:Name="datagriddarhal"  Height="100" Width="400" AutoGenerateColumns="False" CanUserAddRows="false"  Margin="0,5,0,5" HorizontalContentAlignment="Center" FlowDirection="RightToLeft" Background="#FF53C18A" HorizontalScrollBarVisibility="Disabled" RowBackground="#FF53C18A" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" SelectionMode="Single" CanUserReorderColumns="False" GridLinesVisibility="None">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding tarikh}" Width="70" Header="تاریخ"/>
+                                <DataGridTextColumn Binding="{Binding intime}" Width="40" Header="اغاز"/>
+                                <DataGridTextColumn Binding="{Binding kargar}" Width="70" Header="کارگر"/>
+                                <DataGridTextColumn Binding="{Binding pelak}" Width="100" Header="پلاک"/>
+                                <DataGridTextColumn Binding="{Binding shomaretell}" Width="100" Header="شماره همراه"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right">
+                        <DataGrid x:Name="datagridkar" Height="205"   VerticalAlignment="Top" AutoGenerateColumns="False" Background="#FF5D7BCB"  CanUserAddRows="false" FlowDirection="RightToLeft" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" SelectionMode="Single" GridLinesVisibility="None" Focusable="False" EnableRowVirtualization="False" RowBackground="#FF5D7BCB" CanUserReorderColumns="False" Width="500" AlternatingRowBackground="#FF3B4F83" Margin="1,0,0,0" HorizontalContentAlignment="Right" HorizontalAlignment="Right" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding khodro}" Width="70" Header="خودرو"/>
+                                <DataGridTextColumn Binding="{Binding pelak}" Width="70" Header="پلاک"/>
+                                <DataGridTextColumn Binding="{Binding intime}" Width="40" Header="اغاز"/>
+                                <DataGridTextColumn Binding="{Binding outtime}" Width="40" Header="پایان"/>
+                                <DataGridTextColumn Binding="{Binding kargar}" Width="70" Header="کارگر"/>
+                                <DataGridTextColumn Binding="{Binding khadamat}" Width="120" Header="خدمات"/>
+
+                                <DataGridTextColumn Binding="{Binding shomaretell}" Width="80" Header="شماره همراه"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>

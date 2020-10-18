@@ -1,0 +1,36 @@
+﻿<Window x:Class="CarWash.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarWash"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="880" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" MaxHeight="600" MaxWidth="890" MinHeight="600" MinWidth="890" FontFamily="tahoma" FontSize="12">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"  Name="MainPanel" Width="80" >
+            <StackPanel Orientation="Vertical" Margin="1,0" >
+                <Button Content="کافی شاپ" Height="80" Width="80" IsEnabled="False" />
+                <Button Content="کارواش"  Height="80" Width="80" Click="Button_Click"/>
+                <Button Content="تنظیمات" Height="80" Width="80" Click="Button_Click_1"/>
+                <Button Content="بخش مالی" Height="80" Width="80" Click="Button_Click_2" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="0"  Grid.Column="0" >
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                <TextBlock Name="tarikh" FontSize="30"  Margin="15,0" VerticalAlignment="Center" Foreground="#FF1B1BF0" HorizontalAlignment="Center" FontFamily="b titr"  >تاریخ</TextBlock>
+                <TextBlock Name="zaman" FontSize="30"  Margin="15,0" VerticalAlignment="Center" Foreground="#FF1B1BF0" HorizontalAlignment="Center" FontFamily="b titr">ساعت</TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="0" Grid.Row="1" Background="Gray" Height="540" Width="800" >
+            <StackPanel Name="Upanel"/>
+        </Grid>
+    </Grid>
+</Window>

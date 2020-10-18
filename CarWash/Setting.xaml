@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="CarWash.Setting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarWash"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid Background="LightBlue" Height="500">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+
+            <ColumnDefinition Width="475"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <TextBlock>Tanzimate coffe shop</TextBlock>
+        </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"    >
+            <TextBlock FontSize="20" FontWeight="Bold" FontFamily="Nazanin">تنظیمات بخش کارواش</TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1"  >
+            <StackPanel>
+
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                    
+                    <StackPanel Name="bakhsheADDkhodro" Orientation="vertical" Margin="0" VerticalAlignment="Top" FlowDirection="RightToLeft">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5">
+                        <TextBlock Margin="10,0"><Run Text="خودرو :"/></TextBlock>
+                        <TextBox x:Name="namkhodro" VerticalAlignment="Top" Margin="0" Width="100" HorizontalContentAlignment="Center" HorizontalAlignment="Center" GotFocus="namkhodro_GotFocus" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,5">
+                        <Button x:Name="adkhodro" Margin="10,0,5,0" Width="70" Click="adkhodro_Click" Content="+"/>
+                        <Button x:Name="delkhodro" Margin="0" Width="70" Content="-" Click="delkhodro_Click"/>
+                    </StackPanel>
+
+                    <ListBox x:Name="listkhodro" Margin="10,0,0,0"  Height="100" HorizontalAlignment="Left" Width="145" SelectionChanged="listkhodro_SelectionChanged"/>
+
+                    </StackPanel>
+
+                    <Separator Margin="5,2" />
+
+                    <StackPanel Name="bakhsheADDservice" Orientation="vertical" Margin="0" VerticalAlignment="Top" FlowDirection="RightToLeft">
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5">
+                            <TextBlock Margin="0,0,10,0"><Run Text="سرویس :"/></TextBlock>
+                            <TextBox x:Name="namservice" VerticalAlignment="Top" Margin="0" Width="91" HorizontalContentAlignment="Center" HorizontalAlignment="Center" GotFocus="namservice_GotFocus" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,5">
+                            <Button x:Name="addservice" Margin="0,0,5,0" Width="70" Content="+" Click="addservice_Click"/>
+                            <Button x:Name="delservice" Margin="0" Width="70" Content="-" Click="delservice_Click"/>
+                        </StackPanel>
+
+                        <ListBox x:Name="listservice" Margin="0"  Height="100" HorizontalAlignment="Left" Width="145" SelectionChanged="listservice_SelectionChanged"/>
+
+                    </StackPanel>
+
+                    <Separator Margin="5,2" />
+
+                    <StackPanel Name="bakhsheADDkargar" Orientation="vertical" Margin="0" VerticalAlignment="Top" FlowDirection="RightToLeft">
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,5">
+                            <TextBlock Margin="0,0,10,0"><Run Text="کارگر :"/></TextBlock>
+                            <TextBox x:Name="namkargar" VerticalAlignment="Top" Margin="0" Width="105" HorizontalContentAlignment="Center" HorizontalAlignment="Center" GotFocus="namkargar_GotFocus" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,5">
+                            <Button x:Name="addkargar" Margin="0,0,5,0" Width="70" Content="+" Click="addkargar_Click"/>
+                            <Button x:Name="delkargar" Margin="0" Width="70" Content="-" Click="delkargar_Click"/>
+                        </StackPanel>
+
+                        <ListBox x:Name="listkargar" Margin="0"  Height="100" HorizontalAlignment="Left" Width="145" SelectionChanged="listkargar_SelectionChanged"/>
+
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator/>
+
+                <StackPanel Orientation="Vertical" Margin="0,5,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft">
+
+
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                       
+                        <ComboBox x:Name="cbkhodro"  Margin="10,0,0,0" Width="130" DropDownClosed="cbkhodro_DropDownClosed" >خودرو</ComboBox>
+                        <ComboBox x:Name="cbservice"  Width="130" Margin="10,0,0,0"></ComboBox>
+                        <TextBlock Margin="10,0,0,0" >هزینه :</TextBlock>
+                        <TextBox x:Name="txtghimat"  PreviewTextInput="NumberValidationTextBox" Width="100" Text="0" Margin="5,0" HorizontalContentAlignment="Center" TextAlignment="Center" GotFocus="txtghimat_GotFocus"  ></TextBox>
+                        <TextBlock>تومان</TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,5">
+                        <Button x:Name="addprice" Margin="0,0,5,0" Width="120" Content="ثبت" Click="addprice_Click"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <ListView x:Name="ghimatlist" Height="100" Margin="10,0" HorizontalContentAlignment="Center" >
+                            <ListView.View >
+                                <GridView>
+                                    <GridViewColumn Header="خودرو" 
+                                    Width="140" DisplayMemberBinding="{Binding Idkhodro}"/>
+                                    <GridViewColumn Header="خدمت" 
+                                    Width="140" DisplayMemberBinding="{Binding Idkhedmat}"/>
+                                    <GridViewColumn Header="قیمت" 
+                                    Width="100" DisplayMemberBinding="{Binding Idprice}"/>
+                                    
+                                   
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                    <Separator Margin="0,10,0,5"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="10,5">
+                            <DataGrid Height="100" Width="220" x:Name="datagridmoshtari" AutoGenerateColumns="False" CanUserAddRows="false" FlowDirection="RightToLeft" Background="White" RowBackground="white" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" GridLinesVisibility="None"  >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding name}" Width="100" Header="نام"/>
+                                    <DataGridTextColumn Binding="{Binding tell}" Width="110" Header="شماره همراه"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        
+                        </StackPanel>
+                        <StackPanel Margin="0,5,10,5">
+                            <TextBlock Margin="0,0,0,5" >شماره همراه :</TextBlock>
+                            <TextBox x:Name="txtnum" Width="100" Margin="0,0,0,5"></TextBox>
+                            <Button Name="findmoshtari" Margin="0,0,0,5" Click="findmoshtari_Click">جستجو</Button>
+                            <Button Name="delmoshtari" Margin="0,0,0,5" Click="delmoshtari_Click">حذف</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
